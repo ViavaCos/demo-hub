@@ -33,7 +33,17 @@ module.exports = {
 
       // 向外暴露的模块
       exposes: {
-        './add': '@/utils/add.js'
+        './add': '@/utils/add.js',
+        './getPassTime': '@/utils/getPassTime.js'
+      },
+
+      // 标记哪些远程加载模块优先使用自己(host)的依赖，没有再使用remote的
+      shared: {
+        losstime: {
+          import: 'losstime',
+          singleton: true,
+          eager: true // 开启即时消费
+        }
       }
     })
   ]

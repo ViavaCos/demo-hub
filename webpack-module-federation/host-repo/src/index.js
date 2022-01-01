@@ -1,4 +1,7 @@
 (async () => {
+  const { default: getPassTime } = await import('remote-repo/getPassTime');
+  console.log('host-repo', getPassTime());
+
   const { default: add } = await import('remote-repo/add');
 
   [
